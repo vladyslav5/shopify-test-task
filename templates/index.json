@@ -1,0 +1,152 @@
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "user-section": {
+      "type": "user-section",
+      "blocks": {
+        "6d1f4746-a36f-49f2-afb9-7ec93598281d": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/297330860.webp",
+            "title": "dumbbells",
+            "collection": "hot"
+          }
+        },
+        "ea16273f-786d-4688-aa4d-6da0365ea2a1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/60171088.webp",
+            "title": "vultures",
+            "collection": "frontpage"
+          }
+        },
+        "b273cd07-210b-4040-99bc-f9382f723895": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/11151374.webp",
+            "title": "1.25KG",
+            "collection": "frontpage"
+          }
+        },
+        "05016f37-efa3-48f5-8d48-91c77f620feb": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/11151363.webp",
+            "title": "Sets of dumbbells",
+            "collection": "most-relevant"
+          }
+        },
+        "9813edce-338a-4a4b-b058-81e98e896329": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/60171059.webp",
+            "title": "rods",
+            "collection": "top-sellers"
+          }
+        },
+        "f4222723-a31a-4dc7-9865-98add11daf2b": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/11151366.webp",
+            "title": "fdffddfd",
+            "collection": "hot"
+          }
+        },
+        "52f858a7-a7fb-4e5b-beb8-acbdd4a18176": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/60171066.webp",
+            "title": "an sport",
+            "collection": "most-relevant"
+          }
+        }
+      },
+      "block_order": [
+        "6d1f4746-a36f-49f2-afb9-7ec93598281d",
+        "ea16273f-786d-4688-aa4d-6da0365ea2a1",
+        "b273cd07-210b-4040-99bc-f9382f723895",
+        "05016f37-efa3-48f5-8d48-91c77f620feb",
+        "9813edce-338a-4a4b-b058-81e98e896329",
+        "f4222723-a31a-4dc7-9865-98add11daf2b",
+        "52f858a7-a7fb-4e5b-beb8-acbdd4a18176"
+      ],
+      "settings": {
+        "primary_color": "#0b0e0a",
+        "secondary_color": "#000000",
+        "title": "Best collections",
+        "arrows_color": "#151515"
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "user-section"
+  ]
+}

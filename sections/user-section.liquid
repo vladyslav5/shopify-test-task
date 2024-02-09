@@ -1,0 +1,201 @@
+<section class="user_section">
+    <h3>{{ section.settings.title }}</h3>
+    <div class="container">
+        {% if section.blocks.size > 4 %}
+            <button onclick="scrollPrev()" class="left">{% render 'icon-arrow' %}</button>
+            <button onclick="scrollNext()" class="right">{% render 'icon-arrow' %}</button>
+    {%endif%}
+        <div class="user_slider">
+            {% for block in section.blocks %}
+                <div class="user_block">
+                    <a class="a" href="{{ block.settings.collection.url }}">
+                        {%- if block.settings.image and block.settings.image != empty -%}
+                            {{ block.settings.image | image_url : width:200 , height:200 | image_tag:class:'image'}}
+                        {%- endif -%}
+                        <p>{{ block.settings.title }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script>
+    let offsets;
+    const slider = document.querySelector(".user_slider")
+    let scrollPos = 0;
+    let scrollOffset = 0;
+    addEventListener("load", () => {
+        scrollOffset = document.querySelector(".user_block").offsetWidth;
+        offsets = 0;
+        document.querySelectorAll(".user_block").forEach(block => {
+            const elm = block.cloneNode(true)
+            offsets += block.offsetWidth
+            elm.classList.add("clone")
+            slider.appendChild(elm)
+        })
+        slider.scrollLeft = scrollPos;
+    })
+
+    window.addEventListener("resize", resizeElement);
+
+    function resizeElement(){
+        scrollOffset = document.querySelector(".user_block").offsetWidth;
+        offsets = 0;
+        document.querySelectorAll(".user_block").forEach(block => {
+            offsets += block.offsetWidth
+        })
+        slider.scrollLeft=scrollPos=0
+    }
+    function scrollNext() {
+        if (scrollPos >= offsets) {
+            slider.scroll({
+                left: scrollPos = 0
+            })
+        }
+        slider.scroll({
+            behavior: "smooth",
+            left: scrollPos += scrollOffset
+        })
+    }
+
+    function scrollPrev() {
+        if (scrollPos === 0) {
+            slider.scroll({
+                top: 0,
+                left: scrollPos = offsets,
+            })
+        }
+        slider.scroll({
+            top: 0,
+            left: scrollPos -= scrollOffset,
+            behavior: "smooth"
+        })
+    }
+</script>
+
+<style>
+    .user_section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: {{section.settings.primary_color}};
+    }
+
+    h3 {
+        color: {{section.settings.secondary_color}};
+    }
+
+    a {
+        text-decoration: none;
+        color: {{section.settings.primary_color}}
+    }
+
+    .container {
+        padding: 50px;
+        max-width: 900px;
+        width: 100%;
+        position: relative;
+    }
+
+    .user_slider {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns:repeat(auto-fill, 25%);
+        overflow-x: hidden;
+        grid-auto-columns:25%;
+        color: {{ section.settings.primary_color }}
+    }
+
+    .right {
+        color: {{section.settings.arrows_color}};
+        position: absolute;
+        right: 0;
+        top: 50%;
+        background: none;
+        border: none;
+        outline: none;
+    }
+
+    .left {
+        color: {{section.settings.arrows_color}};
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: scale(-1, 1);
+        background: none;
+        border: none;
+        outline: none;
+    }
+
+    .user_block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .image{
+        object-fit: contain;
+        width: 100%;
+        height: auto;
+    }
+</style>
+{% schema %}
+{
+  "name": "user section",
+  "settings": [
+    {
+      "id": "primary_color",
+      "type": "color",
+      "label": "Primary color",
+      "default": "#000"
+    },
+    {
+      "id": "secondary_color",
+      "type": "color",
+      "label": "Secondary color",
+      "default": "#000"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "arrows_color",
+      "type": "color",
+      "label": "Arrows color",
+      "default": "#000"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "label": "Title",
+          "id": "title"
+        },
+        {
+          "type": "collection",
+          "label": "Collection",
+          "id": "collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "user section",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}
